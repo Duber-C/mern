@@ -13,7 +13,7 @@ function Admin() {
       <aside className="sidebar">
         <div className="sidebar-brand">
           <Logo width="32" height="32" />
-          <h1>Dashboard</h1>
+          <h1 style={{ marginLeft: "1em" }}>Dashboard</h1>
         </div>
         <nav>
           <a className="sidebar-link">
@@ -22,9 +22,9 @@ function Admin() {
           </a>
         </nav>
       </aside>
-      <div>
+      <div style={{ margin: "0em 2em 2em 2em" }}>
         <header className="admin-header row">
-          <h1 className="title">Tikets</h1>
+          <h1 className="title">Tickets</h1>
           <div>
             <FontAwesomeIcon
               className="header-icon"
@@ -47,14 +47,9 @@ function Admin() {
             />
           </div>
         </header>
-        <div className="table-wrapper">
-          <Table
-            data={[
-              { uno: 1, dos: 2 },
-              { uno: 1, dos: 2 },
-            ]}
-          />
-        </div>
+        <Table
+          data={[{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]}
+        />
       </div>
     </main>
   );
