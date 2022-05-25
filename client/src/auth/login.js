@@ -11,63 +11,71 @@ function Login() {
   };
 
   return (
-    <div class="login-box">
-      <div
-        style={{ marginBottom: "2em", display: "grid", justifyItems: "center" }}
-      >
-        <Logo />
-        <h1>Dashboard kit</h1>
-        <p class="login-p">Enter your email and password below</p>
-      </div>
+    <main
+      style={{
+        display: "flex",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "#363740",
+      }}
+    >
+      <div className="login-box">
+        <div
+          style={{
+            marginBottom: "2em",
+            display: "grid",
+            justifyItems: "center",
+          }}
+        >
+          <Logo width="48" height="48" />
+          <h1>Dashboard kit</h1>
+          <p className="login-p">Enter your email and password below</p>
+        </div>
 
-      <form class="login-form">
-        <label>EMAIL</label>
-        <input
-          class="form-field"
-          type="email"
-          name="email"
-          placeholder="Email address"
-          required
-        />
-        <label>PASSWORD</label>
-        <div style={{ position: "relative" }}>
+        <form className="login-form">
+          <label>EMAIL</label>
           <input
-            class="form-field"
-            type={visibility ? "text" : "password"}
-            name="password"
-            placeholder="Password"
+            className="form-field"
+            type="email"
+            name="email"
+            placeholder="Email address"
             required
           />
-          {visibility ? (
-            <FontAwesomeIcon
-              icon={faEye}
-              onClick={toggleVisibility}
-              style={{
-                position: "absolute",
-                alignSelf: "center",
-                cursor: "pointer",
-                top: "1em",
-                right: "1em",
-              }}
+          <label>PASSWORD</label>
+          <div style={{ position: "relative" }}>
+            <input
+              className="form-field"
+              type={visibility ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              required
             />
-          ) : (
-            <FontAwesomeIcon
-              icon={faEyeSlash}
-              onClick={toggleVisibility}
-              style={{
-                position: "absolute",
-                alignSelf: "center",
-                cursor: "pointer",
-                top: "1em",
-                right: "1em",
-              }}
-            />
-          )}
-        </div>
-        <a class="login-a">Forgot password?</a>
-        <input class="button" type="submit" value="Log In" />
-      </form>
-    </div>
+            {visibility ? (
+              <FontAwesomeIcon
+                icon={faEye}
+                onClick={toggleVisibility}
+                style={{}}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faEyeSlash}
+                onClick={toggleVisibility}
+                style={{
+                  position: "absolute",
+                  alignSelf: "center",
+                  cursor: "pointer",
+                  top: "1em",
+                  right: "1em",
+                }}
+              />
+            )}
+          </div>
+          <a className="login-a">Forgot password?</a>
+          <input className="button" type="submit" value="Log In" />
+        </form>
+      </div>
+    </main>
   );
 }
 
