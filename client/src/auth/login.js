@@ -71,7 +71,9 @@ function Login() {
               />
             )}
           </div>
-          <a className="login-a">Forgot password?</a>
+          <a href="/#" className="login-a">
+            Forgot password?
+          </a>
           <input className="button" type="submit" value="Log In" />
         </form>
       </div>

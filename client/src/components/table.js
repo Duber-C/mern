@@ -8,6 +8,7 @@ import {
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import moment from "moment";
 
 function Table(props) {
   const [rpp, setRpp] = React.useState(8);
@@ -63,50 +64,71 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            {props.data.slice(0, rpp).map((row, index) => (
-              <tr key={index}>
-                <td className="row">
-                  <img
-                    className="circle"
-                    src="https://picsum.photos/200/300"
-                    width={40}
-                    height={40}
-                    style={{ marginRight: "1em" }}
-                  />
-                  <div>
-                    <p className="subtitle">Constact email not linked</p>
-                    <p className="subparagraph">Updated at 1 day ago</p>
-                  </div>
-                </td>
-                <td>
-                  <p className="subtitle">Tom cruise</p>
-                  <p className="subparagraph">on 24.05.2019</p>
-                </td>
-                <td>
-                  <div className="column">
-                    <p className="subtitle">may 26,2019</p>
-                    <p className="subparagraph">6:30 PM</p>
-                  </div>
-                </td>
-                <td>
-                  <span
-                    style={{
-                      backgroundColor: colors["high"],
-                    }}
-                  >
-                    high
-                  </span>
-                </td>
-                <td style={{ width: "50px" }}>
-                  <FontAwesomeIcon
-                    className="header-icon"
-                    style={{ cursor: "pointer", color: "#C5C7CD" }}
-                    icon={faEllipsisVertical}
-                    onClick={() => {}}
-                  />
-                </td>
-              </tr>
-            ))}
+            {props.data
+              .slice((page - 1) * rpp, (page - 1) * rpp + rpp)
+              .map((row, index) => (
+                <tr key={index}>
+                  <td className="row">
+                    <img
+                      loading="lazy"
+                      className="circle"
+                      src={row.image}
+                      width={40}
+                      height={40}
+                      style={{ marginRight: "1em" }}
+                    />
+                    <div>
+                      <p className="subtitle">{row.tickets[0].description}</p>
+                      <p className="subparagraph">
+                        Updated{" "}
+                        {moment(new Date(row.tickets[0].date))
+                          .fromNow()
+                          .toString()}
+                      </p>
+                    </div>
+                  </td>
+                  <td>
+                    <p className="subtitle">{row.tickets[0].customer.name}</p>
+                    <p className="subparagraph">
+                      on{" "}
+                      {moment(new Date(row.tickets[0].customer.date))
+                        .format("DD.MM.YYYY")
+                        .toString()}
+                    </p>
+                  </td>
+                  <td>
+                    <div className="column">
+                      <p className="subtitle">
+                        {moment(new Date(row.tickets[0].date))
+                          .format("MMM DD, YYYY")
+                          .toString()}
+                      </p>
+                      <p className="subparagraph">
+                        {moment(new Date(row.tickets[0].date))
+                          .format("h:mm A")
+                          .toString()}
+                      </p>
+                    </div>
+                  </td>
+                  <td>
+                    <span
+                      style={{
+                        backgroundColor: colors[row.tickets[0].priority],
+                      }}
+                    >
+                      {row.tickets[0].priority}
+                    </span>
+                  </td>
+                  <td style={{ width: "50px" }}>
+                    <FontAwesomeIcon
+                      className="header-icon"
+                      style={{ cursor: "pointer", color: "#C5C7CD" }}
+                      icon={faEllipsisVertical}
+                      onClick={() => {}}
+                    />
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
@@ -126,6 +148,7 @@ function Table(props) {
                   value="8"
                   onClick={() => {
                     setRpp(8);
+                    setPage(1);
                   }}
                 >
                   8
@@ -133,6 +156,7 @@ function Table(props) {
                 <option
                   onClick={() => {
                     setRpp(16);
+                    setPage(1);
                   }}
                 >
                   16
@@ -141,6 +165,7 @@ function Table(props) {
                   value="32"
                   onClick={() => {
                     setRpp(32);
+                    setPage(1);
                   }}
                 >
                   32
@@ -149,6 +174,7 @@ function Table(props) {
                   value="64"
                   onClick={() => {
                     setRpp(64);
+                    setPage(1);
                   }}
                 >
                   64
@@ -158,7 +184,8 @@ function Table(props) {
             </div>
           </div>
           <p style={{ marginRight: "1em" }} className="subparagraph">
-            {page}-{rpp * page} of {props.data.length}
+            {(page - 1) * rpp + 1}-{(page - 1) * rpp + rpp} of{" "}
+            {props.data.length}
           </p>
           <FontAwesomeIcon
             className="header-icon"

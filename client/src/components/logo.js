@@ -21,8 +21,8 @@ function Logo(props) {
           y2="34.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0.7" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" stopOpacity="0.7" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
       </defs>
     </svg>
