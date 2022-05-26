@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./pages/admin";
-import Logo from "./components/logo";
 import NotFound from "./pages/notFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

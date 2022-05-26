@@ -34,7 +34,7 @@ function Admin() {
               <h1 style={{ marginLeft: "1em" }}>Dashboard</h1>
             </div>
             <nav>
-              <a className="sidebar-link">
+              <a className="sidebar-link" href="/#">
                 <FontAwesomeIcon icon={faChartPie} onClick={() => {}} />
                 <p>Overview</p>
               </a>
@@ -58,6 +58,7 @@ function Admin() {
               <div className="header-profile row">
                 <p className="subtitle">Jones Ferdinand</p>
                 <img
+                  alt="admin profile"
                   className="circle circle-border"
                   src="https://picsum.photos/200/300"
                   width={40}

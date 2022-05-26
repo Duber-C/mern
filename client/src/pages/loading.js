@@ -1,5 +1,3 @@
-import Logo from "../components/logo";
-
 function Loading() {
   return (
     <main

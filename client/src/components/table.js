@@ -70,6 +70,7 @@ function Table(props) {
                 <tr key={index}>
                   <td className="row">
                     <img
+                      alt={row.tickets[0].customer.name}
                       loading="lazy"
                       className="circle"
                       src={row.image}
