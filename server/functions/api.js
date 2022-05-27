@@ -42,7 +42,7 @@ router.get("/tickets", (req, res) => {
         },
       },
     });
-    res.send(allUsers);
+    res.json(allUsers);
   })();
 });
 
