@@ -51,6 +51,7 @@ router.get("/tickets", (req, res) => {
 });
 
 app.use(`/.netlify/functions/api`, router);
+app.use(express.json);
 
 module.exports = app;
 module.exports.handler = serverless(app);
