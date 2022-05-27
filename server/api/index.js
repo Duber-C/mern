@@ -1,5 +1,11 @@
-const app = require("express")();
+const express = requier("express");
+const app = express();
 const { v4 } = require("uuid");
+const { PrismaClient } = require("@prisma/client");
+
+const router = express.Router();
+
+const prisma = new PrismaClient();
 
 app.get("/api", (req, res) => {
   const path = `/api/item/${v4()}`;
@@ -11,6 +17,31 @@ app.get("/api", (req, res) => {
 app.get("/api/item/:slug", (req, res) => {
   const { slug } = req.params;
   res.end(`Item: ${slug}`);
+});
+
+app.get("/tickets", (req, res) => {
+  (async () => {
+    await prisma.$connect().catch((err) => {
+      res.json(err);
+    });
+
+    const allUsers = await prisma.user
+      .findMany({
+        include: {
+          notifications: true,
+          tickets: {
+            select: {
+              description: true,
+              priority: true,
+              date: true,
+              customer: true,
+            },
+          },
+        },
+      })
+      .catch((err) => res.json(err));
+    res.json(allUsers);
+  })();
 });
 
 module.exports = app;
