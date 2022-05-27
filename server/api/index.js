@@ -19,7 +19,7 @@ app.get("/api/item/:slug", (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
-app.get("/tickets", (req, res) => {
+app.get("/api/tickets", (req, res) => {
   (async () => {
     await prisma.$connect().catch((err) => {
       res.json(err);
