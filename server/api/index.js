@@ -1,4 +1,4 @@
-const express = requier("express");
+const express = require("express");
 const app = express();
 const { v4 } = require("uuid");
 const { PrismaClient } = require("@prisma/client");
