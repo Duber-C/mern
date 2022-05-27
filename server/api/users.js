@@ -1,7 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-export async function handler(event, context, callback) {
+export default async function handler(event, context, callback) {
   try {
     const users = await prisma.customer.findMany();
     return {
