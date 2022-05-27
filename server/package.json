@@ -1,29 +1,17 @@
 {
-  "name": "server",
+  "name": "Mern_app",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@prisma/client": "^3.14.0",
-    "bcrypt": "^5.0.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "moment": "^2.29.3",
-    "mongodb": "^4.6.0",
-    "netlify-lambda": "^2.0.15",
-    "serverless-http": "^3.0.1"
-  },
+  "main": "index.js",
+  "license": "MIT",
   "devDependencies": {
-    "prisma": "^3.14.0"
+    "prisma": "^3.14.0",
+    "netlify-cli": "^3.37.1"
+  },
+  "scripts": {
+    "build": "prisma generate",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@prisma/client": "2.24.1"
   }
 }
