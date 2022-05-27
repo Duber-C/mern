@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 
 exports.handler = async (event, context, callback) => {
   try {
+    await prisma.$connect();
     const users = await prisma.customer.findMany();
     return {
       statusCode: 200,
