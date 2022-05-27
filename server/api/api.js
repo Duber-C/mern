@@ -50,7 +50,7 @@ router.get("/tickets", (req, res) => {
   })();
 });
 
-app.use(`/`, router);
+app.use(`data/`, router);
 app.use(express.json);
 
 module.exports = app;
