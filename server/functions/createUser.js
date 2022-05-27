@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 exports.handler = async (event, context, callback) => {
   try {
     const data = JSON.parse(event.body);
-    const createdUser = await prisma.user.create({ name: "asdfasd" });
+    const createdUser = await prisma.user.create({ data: { name: "asdfasd" } });
 
     return {
       statusCode: 200,
