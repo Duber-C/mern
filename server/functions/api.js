@@ -25,7 +25,7 @@ router.post("/testpost", (req, res) => {
   });
 });
 
-router.route("/tickets").get((req, res) => {
+router.get("/tickets", (req, res) => {
   (async () => {
     await prisma.$connect();
 
