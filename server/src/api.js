@@ -4,6 +4,9 @@ const { PrismaClient } = require("@prisma/client");
 
 const app = express();
 const router = express.Router();
+
+// const prisma = new PrismaClient();
+
 router.get("/", (req, res) => {
   res.json({
     hello: "hi!",
@@ -21,8 +24,6 @@ router.post("/testpost", (req, res) => {
     hello: "hit the POST!",
   });
 });
-
-const prisma = new PrismaClient();
 
 router.route("/tickets").get((req, res) => {
   (async () => {
