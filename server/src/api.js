@@ -5,7 +5,7 @@ const { PrismaClient } = require("@prisma/client");
 const app = express();
 const router = express.Router();
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 router.get("/", (req, res) => {
   res.json({
@@ -46,7 +46,7 @@ router.route("/tickets").get((req, res) => {
   })();
 });
 
-app.use(`/.netlify/functions/api`, router);
+app.use(`/`, router);
 
 module.exports = app;
 module.exports.handler = serverless(app);
