@@ -21,10 +21,10 @@ app.get("/api/item/:slug", (req, res) => {
 
 app.get("/api/tickets", (req, res) => {
   (async () => {
+    res.json({ paso: "asdfasdf" });
     await prisma.$connect().catch((err) => {
       res.json(err);
     });
-    res.json({ paso: "asdfasdf" });
     const allUsers = await prisma.user
       .findMany({
         include: {
