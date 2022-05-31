@@ -1,7 +1,7 @@
 {
   "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
   "functions": {
-    "api/index.js": {
+    "api/**/*.js": {
       "maxDuration": 60
     }
   }
