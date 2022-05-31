@@ -24,7 +24,7 @@ app.get("/api/tickets", (req, res) => {
     await prisma.$connect().catch((err) => {
       res.json(err);
     });
-
+    res.json({ paso: "asdfasdf" });
     const allUsers = await prisma.user
       .findMany({
         include: {
