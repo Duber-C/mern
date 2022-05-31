@@ -1,6 +1,7 @@
 import Logo from "../components/logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import React from "react";
 
 function Login() {
@@ -33,7 +34,7 @@ function Login() {
           <p className="login-p">Enter your email and password below</p>
         </div>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={"/admin"}>
           <label>EMAIL</label>
           <input
             className="form-field"
@@ -71,10 +72,13 @@ function Login() {
               />
             )}
           </div>
-          <a href="/#" className="login-a">
+          <a href="/admin" className="login-a">
             Forgot password?
           </a>
-          <input className="button" type="submit" value="Log In" />
+          {/* <input className="button" type="submit" value="Log In" /> */}
+          <Link to="/admin" className="button" type="submit" value="Log in">
+            Log In
+          </Link>
         </form>
       </div>
     </main>
