@@ -5,7 +5,7 @@ const { PrismaClient } = require("@prisma/client");
 
 const router = express.Router();
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ log: ["query", "info", "warn", "error"] });
 
 app.get("/api", (req, res) => {
   const path = `/api/item/${v4()}`;
