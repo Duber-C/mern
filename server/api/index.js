@@ -41,7 +41,9 @@ app.get("/api/tickets", (req, res) => {
       })
       .catch((err) => res.json(err));
     res.json(allUsers);
-  })();
+  })().catch((err) => {
+    res.json(err);
+  });
 });
 
 module.exports = app;
